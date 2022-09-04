@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { RandomImage, RandomWord } from "../../components";
+import { RandomImage, RandomWord, Card } from "../../components";
 import axios from "axios";
 import Styles from "./style.module.css";
 
@@ -52,8 +52,10 @@ const RandomPrompts = () => {
         </p>
       </div>
       <div className={Styles.randomsContainer}>
-        {randomImage && <RandomImage image={randomImage} />}
-        {randomWord && <RandomWord word={randomWord} />}
+        {randomImage && (
+          <Card title="Random Image" child={<img src={randomImage} />} />
+        )}
+        {randomWord && <Card title="Random Word" child={<p>{randomWord}</p>} />}
       </div>
     </>
   );
